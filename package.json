@@ -28,7 +28,8 @@
   "dependencies": {
     "document-register-element": "1.13.1",
     "react": "16.9.0",
-    "react-dom": "16.9.0"
+    "react-dom": "16.9.0",
+    "react-router-dom": "5.0.1"
   },
   "devDependencies": {
     "@nrwl/workspace": "8.4.13",
@@ -66,6 +67,7 @@
     "babel-loader": "8.0.6",
     "babel-plugin-macros": "2.6.1",
     "core-js": "3.1.4",
-    "regenerator-runtime": "0.13.3"
+    "regenerator-runtime": "0.13.3",
+    "@types/react-router-dom": "4.3.5"
   }
 }

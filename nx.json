@@ -13,6 +13,18 @@
     },
     "home-page-e2e": {
       "tags": []
+    },
+    "todos": {
+      "tags": []
+    },
+    "todos-e2e": {
+      "tags": []
+    },
+    "orchestration-layer": {
+      "tags": []
+    },
+    "orchestration-layer-e2e": {
+      "tags": []
     }
   }
 }
