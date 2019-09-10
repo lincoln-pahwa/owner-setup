@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-
+import { Dropdown, Font, Menu, Spinner } from '@procore/core-react';
 import './app.scss';
 
 import { Route, Link } from 'react-router-dom';
@@ -16,12 +16,7 @@ export const App = () => {
   return (
     <div className="app">
       <header className="flex">
-        <img
-          alt=""
-          width="75"
-          src="https://nx.dev/assets/images/nx-logo-white.svg"
-        />
-        <h1>Welcome to orchestration-layer!</h1>
+        <h1>This is orchestration-layer!</h1>
       </header>
 
       {/* START: routes */}
@@ -30,21 +25,26 @@ export const App = () => {
       <br />
       <hr />
       <br />
-      <div role="navigation">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/todos">Todos</Link>
-          </li>
-        </ul>
-      </div>
+      <Dropdown
+        label="Go to..."
+        variant="primary"
+      >
+        <Menu.Item item="home">
+          <Link to="/">
+            <Font size="lg" weight="medium" variant="primary">Home</Font>
+          </Link>
+        </Menu.Item>
+        <Menu.Item item="todo">
+          <Link to="/todos">
+            <Font size="lg" weight="medium" variant="primary">Todos</Font>
+          </Link>
+        </Menu.Item>
+      </Dropdown>
       <Route
         path="/"
         exact
         render={() => (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Spinner size="lg" />}>
             <HomePageApp />
           </Suspense>
         )}
@@ -53,7 +53,7 @@ export const App = () => {
         path="/todos"
         exact
         render={() => (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Spinner size="lg" />}>
             <TodoPageApp />
           </Suspense>
         )}

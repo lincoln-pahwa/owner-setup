@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Button, Card } from '@procore/core-react'
 import './app.scss';
 
 import { Route, Link } from 'react-router-dom';
@@ -28,21 +28,24 @@ export const TodoPageApp = () => {
   }
 
   return (
-    <>
-      <h1>Todos</h1>
-      <ul>
+    <div className="app">
+      <header className="flex">
+        <h1>Todos</h1>
+      </header>
+      <Card>
         {todos.map(t => (
-          <li className={'todo'}>{t.title}</li>
+          <Card  variant="hoverable" className={'todo'}>{t.title}</Card>
         ))}
-      </ul>
-      <button id={'add-todo'} onClick={addTodo}>
+      </Card>
+      
+      <Button id={'add-todo'} onClick={addTodo}>
         Add Todo
-      </button>
+      </Button>
 
-      <button id={'delete-all'} onClick={deleteAll}>
+      <Button variant="tertiary" id={'delete-all'} onClick={deleteAll}>
         Delete All
-      </button>
-    </>
+      </Button>
+    </div>
   );
 };
 
