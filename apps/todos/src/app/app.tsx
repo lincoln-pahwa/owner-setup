@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Card } from '@procore/core-react'
+import { Todo } from './components/todo';
 import './app.scss';
 
 import { Route, Link } from 'react-router-dom';
@@ -8,7 +9,7 @@ interface Todo {
   title: string;
 }
 
-export const TodoPageApp = () => {
+export const TodoPageApp = ({ match, history }) => {
   const [todos, setTodos] = useState<Todo[]>([
     { title: 'Todo 1' },
     { title: 'Todo 2' }
@@ -27,14 +28,25 @@ export const TodoPageApp = () => {
     setTodos([]);
   }
 
+  function onTodoClick(id: number) {
+    history.push(`${match.url}/${id}`);
+  }
+
   return (
     <div className="app">
       <header className="flex">
         <h1>Todos</h1>
       </header>
       <Card>
-        {todos.map(t => (
-          <Card  variant="hoverable" className={'todo'}>{t.title}</Card>
+        {todos.map((t, index) => (
+          <Card 
+            key={t.title}
+            variant="hoverable"
+            className={'todo'}
+            onClick={onTodoClick.bind(null, index)} 
+          >
+            {t.title}
+          </Card>
         ))}
       </Card>
       
@@ -45,6 +57,18 @@ export const TodoPageApp = () => {
       <Button variant="tertiary" id={'delete-all'} onClick={deleteAll}>
         Delete All
       </Button>
+
+      <br/>
+      <hr />
+
+      {match.params.todoId && todos.length ? (
+        
+        <Route 
+          path={`${match.url}/:todoId`}
+          component={Todo}
+        />
+      ) : <></>}
+
     </div>
   );
 };

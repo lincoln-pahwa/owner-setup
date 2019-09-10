@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@homepage/*": ["apps/home-page/src/app/*"],
-      "@todopage/*": ["apps/todos/src/app/*"]
+      "@todopage/*": ["apps/todos/src/app/*"],
+      "@nestedroutes/*": ["apps/nested-routes/src/app/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

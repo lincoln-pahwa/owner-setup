@@ -2,7 +2,7 @@ import React from 'react';
 
 import './app.scss';
 
-export const HomePageApp = () => {
+export const HomePageApp = ({isNested}) => {
   /*
    * Replace the elements below with your own.
    *
@@ -11,7 +11,7 @@ export const HomePageApp = () => {
   return (
     <div className="app">
       <header className="flex">
-        <h1>Welcome to home-page!</h1>
+        <h1>Welcome to {isNested ? 'Nested': ''} home-page!</h1>
       </header>
     </div>
   );

@@ -7,7 +7,7 @@ import App from './app/app';
 
 ReactDOM.render(
   <BrowserRouter>
-    <App history={{push: function() {}}} match={{params: {todoId: null }, url: "/"}}/>
+    <App />
   </BrowserRouter>,
   document.getElementById('root')
 );

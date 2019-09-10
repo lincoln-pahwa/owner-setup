@@ -26,10 +26,13 @@
     "orchestration-layer-e2e": {
       "tags": []
     },
-    "apps-api": {
+    "api": {
       "tags": []
     },
-    "api": {
+    "nested-routes": {
+      "tags": []
+    },
+    "nested-routes-e2e": {
       "tags": []
     }
   }
