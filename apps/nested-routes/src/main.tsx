@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 
 import { BrowserRouter } from 'react-router-dom';
 
-import App from './app/app';
+import NestedRouteApp from './app/app';
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <NestedRouteApp match={{ url: "" }}/>
   </BrowserRouter>,
   document.getElementById('root')
 );

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Button, Card } from '@procore/core-react'
+import { Button, Card, Icon, IconLayout } from '@procore/core-react'
 import { Todo } from './components/todo';
+import { EditTodo } from './edit-todo';
 import './app.scss';
+import '@procore/core-icons/dist/icons.css';
 
-import { Route, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 interface Todo {
   title: string;
@@ -32,6 +34,12 @@ export const TodoPageApp = ({ match, history }) => {
     history.push(`${match.url}/${id}`);
   }
 
+  function onIconClick(id: number, event: React.MouseEvent<HTMLSpanElement, MouseEvent>) {
+    event.preventDefault();
+    event.stopPropagation();
+    history.push(`${match.url}/${id}/edit`);
+  }
+
   return (
     <div className="app">
       <header className="flex">
@@ -43,9 +51,14 @@ export const TodoPageApp = ({ match, history }) => {
             key={t.title}
             variant="hoverable"
             className={'todo'}
-            onClick={onTodoClick.bind(null, index)} 
+            onClick={onTodoClick.bind(null, (index + 1))} 
           >
-            {t.title}
+            <IconLayout>
+              {t.title}
+              <IconLayout.Icons>
+                  <Icon icon="edit" variant="hover-fill" clickable onClick={(event) => onIconClick((index + 1), event)}/>
+              </IconLayout.Icons>
+            </IconLayout>
           </Card>
         ))}
       </Card>
@@ -63,10 +76,21 @@ export const TodoPageApp = ({ match, history }) => {
 
       {match.params.todoId && todos.length ? (
         
-        <Route 
-          path={`${match.url}/:todoId`}
-          component={Todo}
-        />
+        <Switch>
+          <Route
+            exact
+            path={`${match.url}/:todoId`}
+            component={Todo}
+          />
+
+          <Route 
+            path={`${match.url}/:todoId/edit`}
+            render={() => (
+              <EditTodo todoId={match.params.todoId}/>
+            )}
+          />
+        </Switch>
+        
       ) : <></>}
 
     </div>

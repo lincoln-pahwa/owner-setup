@@ -1327,6 +1327,11 @@
   dependencies:
     flexboxgrid2 "7.2.1"
 
+"@procore/core-icons@^7.17.0":
+  version "7.17.0"
+  resolved "https://registry.yarnpkg.com/@procore/core-icons/-/core-icons-7.17.0.tgz#898e8b61b5ed6d8efcdbae0c059afc5d4b4df120"
+  integrity sha512-ZeV7BDhvboAd3GOtu3xmI+DuBfQvnl9YHXE1A0hz1gINowy7J9x7CQT/D2EFeSEHoIO/mkdQKyM5BPvpzxYwrg==
+
 "@procore/core-react@^7.17.0":
   version "7.17.0"
   resolved "https://registry.yarnpkg.com/@procore/core-react/-/core-react-7.17.0.tgz#52d4949a40e586044539462881e711a27200396f"
